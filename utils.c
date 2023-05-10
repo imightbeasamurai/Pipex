@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerrahim <aerrahim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yurei <yurei@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:58 by aerrahim          #+#    #+#             */
-/*   Updated: 2023/05/04 15:01:43 by aerrahim         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:09:08 by yurei            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	get_error(void)
+void	get_panic(char *error)
 {
-	perror("Error occured");
+	ft_putstr_fd(error, 2);
 	exit(EXIT_FAILURE);
 }
+
 
 int	has_backslash(char *cmd)
 {
@@ -75,10 +76,11 @@ void	get_exe(char *av, char **envpath)
 		while (cmd[++i])
 			free(cmd[i]);
 		free(cmd);
-		get_error();
+		get_panic("\033[31mError: invalid command\n\033[0m");
 	}
 	if (execve(path, cmd, envpath) == -1)
-		get_error();
+		get_panic("\033[31mError: invalid command\n\033[0m");
+
 }
 
 int	get_next_line(char **line)

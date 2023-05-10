@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aerrahim <aerrahim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yurei <yurei@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:36:43 by aerrahim          #+#    #+#             */
-/*   Updated: 2023/05/03 19:44:21 by aerrahim         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:06:49 by yurei            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_path{
 	char	*partpath;
 }	t_path;
 
-void	get_error(void);
+void	get_panic(char *error);
 char	*get_path(char *cmd, char **envpath);
 int		get_next_line(char **line);
 void	get_exe(char *av, char **envpath);

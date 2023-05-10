@@ -19,7 +19,6 @@ W = -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-#in windowns/some linux systems "\033[0m" is needed instead of "\e[0m" in order to reset fonts color to default (@echo "\033[33m----Compiling!----\e[0m")
 	@echo "\033[33m----Compiling!----\033[0m" 
 	@make -C libft
 	@${CC} ${W} ${OPTION_FLAG} ${OBJS} ${LIB} -o ${NAME}
